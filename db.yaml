@@ -1,4 +1,4 @@
 mysql_host: 'localhost'
 mysql_user: 'root'
-mysql_password: '<YOUR_DATABASE_PASSWORD>'
-mysql_db: '<YOUR_DATABASE_NAME>'
+mysql_password: 'yuvrajroot321'
+mysql_db: 'covid_help'
