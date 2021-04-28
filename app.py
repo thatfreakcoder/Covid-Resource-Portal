@@ -22,9 +22,11 @@ def index():
     q = cur.execute("SELECT * FROM resources ORDER BY res_id DESC;")
     if q > 0:
         resources = cur.fetchall()
+        print(resources)
         return render_template('index.html', resources=resources)
     else:
         return render_template('index.html', resources=None)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
