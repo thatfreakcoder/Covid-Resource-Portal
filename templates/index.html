@@ -1,0 +1,26 @@
+{% include 'block.html' %} {% block subcontent %}
+{% if resources!=None %}
+<div class="row m-auto">
+    {% for resource in resources %}
+    <div class="col-lg-4 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{resource[1]}}</h5>
+                <span class="fa fa-tag"></span> 
+                {% for tag in resource[4].split(',') %}
+                    <span class="badge bg-danger ml-4">{{tag}}</span> 
+                {% endfor %}
+                <span class="fa fa-map-marker"></span><p class="card-text">{{resource[5]}}</p>
+                <p class="card-text">{{resource[3]}}</p>
+            </div>
+            <div class="card-footer">
+                <p class="datetime">{{resource[2]}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+NOTHING TO SHOW
+{% endif %}
+{% endblock %}
