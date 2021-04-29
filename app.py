@@ -60,14 +60,16 @@ def search_location():
 
 @app.route('/search/tags')
 def search_tag():
-    tag = str(request.args.get('q')).upper()
+    tags = str(request.args.get('q')).upper().split(' ')
+    print(tags)
     cur = mysql.connection.cursor()
-    q = cur.execute("SELECT * FROM resources WHERE tags LIKE '%{}%';".format(tag))
-    if q > 0:
-        resources = cur.fetchall()
-        return render_template('index.html', resources=resources, classes=CLASSES)
-    else:
-        return render_template('index.html', resources=None)
+    for tag in tags:
+        q = cur.execute("SELECT * FROM resources WHERE tags LIKE '%{}%';".format(tag))
+        if q > 0:
+            resources = cur.fetchall()
+            return render_template('index.html', resources=resources, classes=CLASSES)
+        else:
+            return render_template('index.html', resources=None)
 
 if __name__ == '__main__':
     app.run(debug=True)
