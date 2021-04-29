@@ -15,13 +15,15 @@ app.config['MYSQL_USER'] = db_keeps['mysql_user']
 app.config['MYSQL_PASSWORD'] = db_keeps['mysql_password']
 app.config['MYSQL_DB'] = db_keeps['mysql_db']
 
+CLASSES = ["success", "danger", "primary", "info", "warning", "dark"]
+
 @app.route('/')
 def index():
     cur = mysql.connection.cursor()
     q = cur.execute("SELECT * FROM resources ORDER BY res_id DESC;")
     if q > 0:
         resources = cur.fetchall()
-        return render_template('index.html', resources=resources)
+        return render_template('index.html', resources=resources, classes=CLASSES)
     else:
         return render_template('index.html', resources=None)
 
@@ -52,7 +54,7 @@ def search_location():
     q = cur.execute("SELECT * FROM resources WHERE location='{}';".format(location))
     if q > 0:
         resources = cur.fetchall()
-        return render_template('index.html', resources=resources)
+        return render_template('index.html', resources=resources, classes=CLASSES)
     else:
         return render_template('index.html', resources=None)
 
@@ -63,7 +65,7 @@ def search_tag():
     q = cur.execute("SELECT * FROM resources WHERE tags LIKE '%{}%';".format(tag))
     if q > 0:
         resources = cur.fetchall()
-        return render_template('index.html', resources=resources)
+        return render_template('index.html', resources=resources, classes=CLASSES)
     else:
         return render_template('index.html', resources=None)
 
