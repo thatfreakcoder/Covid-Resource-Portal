@@ -9,7 +9,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">{{resource[1]}}</h4>
                                 <span class="fa fa-tag"></span> 
-                                {% for tag in resource[3].split(',') %}
+                                {% for tag in resource[3].split(', ') %}
                                 <a href="/search/tags?q={{tag.lower()}}">
                                     <span class="badge rounded-pill bg-light text-dark m-2">{{tag}}</span> 
                                 </a>
@@ -17,7 +17,7 @@
                                 <div class="divider"></div>
                                 <span class="fa fa-map-marker"></span> 
                                 <a href="/search/locations?q={{resource[4]}}">
-                                    <span class="badge bg-light text-dark m-2">{{resource[4]}}</span> 
+                                    <span class="badge bg-light text-dark m-2 text-capitalize">{{resource[4]}}</span> 
                                 </a>
                             </div>
                             <div class="card-footer text-center">
