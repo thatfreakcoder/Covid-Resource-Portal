@@ -87,6 +87,9 @@ def success():
     session['logged_in'] = False
     return render_template('admin.html')
 
+@app.errorhandler(404)
+def error(err):
+    return render_template('404.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
