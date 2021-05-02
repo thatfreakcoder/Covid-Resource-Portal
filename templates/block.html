@@ -66,6 +66,22 @@
         .modal-trigger{
             cursor: pointer;
         }
+        .col-lg-4 {
+            height: fit-content;
+        }
+        .external-links{
+            position: fixed;
+            text-decoration: none;
+            right: 20px;
+            bottom: 50px;
+            width: fit-content;
+            border-radius: 1.25rem;
+            background-color: rgb(135, 255, 111);
+            z-index: 99;
+            padding: 10px;
+            box-shadow: 0 0 35px rgb(110, 110, 110);
+            color: black;
+        }
     </style>
 {% endblock %} 
 
@@ -84,7 +100,47 @@
         <a href="/"><h1 class="header text-dark">COVID Resource Portal 🆘</h1></a>
     </div>
     {% include 'search_add.html' %}
-    
+    <a class="external-links modal-trigger" data-bs-toggle="modal" data-bs-target="#infoModal">
+        <span class="fa fa-link"> Helpful Links</span>
+    </a>
+    <div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalTitle">Important Links</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>
+                            <a href="https://helpinghandsgroup.in/covid19/">https://helpinghandsgroup.in/covid19/</a>
+                        </li>
+                        <li>
+                            <a href="https://covidindiaresources.com/">https://covidindiaresources.com/</a>
+                        </li>
+                        <li>
+                            <a href="https://indiabeatscovid.in/">https://indiabeatscovid.in/</a>
+                        </li>
+                        <li>
+                            <a href="https://verifiedcovidleads.com/">https://verifiedcovidleads.com/</a>
+                        </li>
+                        <li>
+                            <a href="https://covidinfo.rajasthan.gov.in/">https://covidinfo.rajasthan.gov.in/</a>
+                        </li>
+                        <li>
+                            <a href="https://coviddelhi.com/">https://coviddelhi.com/</a>
+                        </li>
+                        <li>
+                            <a href="https://coronabeds.jantasamvad.org/">https://coronabeds.jantasamvad.org/</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/HelpingHandsJpr">https://twitter.com/HelpingHandsJpr</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     {% block subcontent %} 
     {% endblock %} 
 {% endblock %}
