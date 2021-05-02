@@ -4,7 +4,7 @@ from flask import Flask, request, redirect, render_template, flash, url_for, ses
 from flask_mysqldb import MySQL
 from yaml import load, FullLoader
 from datetime import datetime 
-from os import urandom
+from os import urandom, environ
 
 app = Flask(__name__)
 mysql = MySQL(app)
@@ -72,7 +72,7 @@ def search_tag():
 @app.route('/admin/success/', methods=['GET', 'POST'])
 def admin():
     if request.method == 'POST':
-        if request.form.get('password') == 'admin@covidhelp123':
+        if request.form.get('password') == environ['COVID_PASSWORD']:
             session['logged_in'] = True
             flash("Admin Access Granted", "success")
         else:
