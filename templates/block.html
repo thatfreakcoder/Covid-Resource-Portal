@@ -69,18 +69,25 @@
         .col-lg-4 {
             height: fit-content;
         }
-        .external-links{
+        .floating-div {
             position: fixed;
             text-decoration: none;
-            right: 20px;
             bottom: 50px;
             width: fit-content;
             border-radius: 1.25rem;
-            background-color: rgb(135, 255, 111);
             z-index: 99;
             padding: 10px;
             box-shadow: 0 0 35px rgb(110, 110, 110);
+        }
+        .external-links{
+            right: 20px;
+            background-color: rgb(135, 255, 111);
             color: black;
+        }
+        .contact-me{
+            left: 20px;
+            background-color: rgb(252, 74, 74);
+            color: white;
         }
     </style>
 {% endblock %} 
@@ -100,9 +107,13 @@
         <a href="/"><h1 class="header text-dark">COVID Resource Portal 🆘</h1></a>
     </div>
     {% include 'search_add.html' %}
-    <a class="external-links modal-trigger" data-bs-toggle="modal" data-bs-target="#infoModal">
+    <a class="floating-div external-links modal-trigger" data-bs-toggle="modal" data-bs-target="#infoModal">
         <span class="fa fa-link"> Helpful Links</span>
     </a>
+    <a class="floating-div contact-me modal-trigger" data-bs-toggle="modal" data-bs-target="#contactModal">
+        <span class="fa fa-phone"> Get in Touch</span>
+    </a>
+    <!-- INFO MODAL -->
     <div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -140,6 +151,43 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- CONTACT MODAL -->
+    <div id="contactModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalTitle">Let's Connect</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="text-center p-4">This portal is developed by Yuvraj Dagur.</h5>
+                    <a href="https://twitter.com/yuvrajdagur12/" target="_blank">
+                        <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" />
+                    </a>
+                    <a href="https://linkedin.com/in/yuvraj-dagur/" target="_blank">
+                        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+                    </a>
+                    <a href="mailto:yuvraj.dagur928@gmail.com" target="_blank">
+                        <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+                    </a>
+                    <a href="https://yuvraj-dagur.medium.com" target="_blank">
+                        <img src="https://img.shields.io/badge/Medium-white?style=for-the-badge&logo=medium&logoColor=black" />
+                    </a>
+                    <a href="https://dev.to/thatfreakcoder/" target="_blank">
+                        <img src="https://img.shields.io/badge/dev.to-white?style=for-the-badge&logo=dev.to&logoColor=black" />
+                    </a>
+                    <a href="https://instagram.com/yuvraj_dagur" target="_blank">
+                        <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-absolute" style="right: 0;top: 0;">
+        <a href="https://github.com/thatfreakcoder/ipl-predict-score">
+            <img class="fork-img" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" alt="fork me">
+        </a>
     </div>
     {% block subcontent %} 
     {% endblock %} 
